@@ -30,15 +30,18 @@ namespace CasaDoCodigo
             //esse serviço mantém informações na mémória
             services.AddDistributedMemoryCache();
 
-            //
+            //adicionar uma sessão
             services.AddSession();
 
-
+            //Pagando a configuração do banco de dados
             string connectionString = Configuration.GetConnectionString("Default");
             
+            //adicionar o contexto do banco de dados
             services.AddDbContext<ApplicationContext>(options =>
+                //Usando a configuração para conectar o banco de dados
                 options.UseSqlServer(connectionString)
             );
+
             //adicionando um instancia temporária
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
@@ -71,7 +74,7 @@ namespace CasaDoCodigo
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
+                    name: "default",//definindo o carrossel como rota padrão
                     template: "{controller=Pedido}/{action=Carrossel}/{codigo?}");
             });
             //Criando banco de dados

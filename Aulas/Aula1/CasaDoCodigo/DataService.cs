@@ -23,6 +23,7 @@ namespace CasaDoCodigo
             //pegando a tabela e tendo certeza que ela foi criada
             contexto.Database.EnsureCreated();
 
+
             List<Livro> livros = GetLivros();
 
             produtoRepository.SaveProdutos(livros);

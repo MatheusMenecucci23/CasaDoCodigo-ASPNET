@@ -18,6 +18,8 @@ namespace CasaDoCodigo
         {
             base.OnModelCreating(modelBuilder);
 
+            //Fazendo a geração do banco de dados com Entity Framework
+            //Tabela com os seus atributos
             modelBuilder.Entity<Produto>().HasKey(t => t.Id);
             
             modelBuilder.Entity<Pedido>().HasKey(t => t.Id);
