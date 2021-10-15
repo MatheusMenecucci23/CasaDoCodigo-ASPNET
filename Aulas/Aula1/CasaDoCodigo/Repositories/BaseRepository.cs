@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CasaDoCodigo.Repositories
 {
-    public class BaseRepository<T> where T: BaseModel
+    public abstract class BaseRepository<T> where T: BaseModel
     {
         //T é um tipo genérico
         protected readonly ApplicationContext contexto;
